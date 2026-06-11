@@ -1,0 +1,22 @@
+#kaze brojMeseci izmedju >=5 i >12
+numberOfMonths: 4, 5, 6, 11, 12, 13
+
+groupTrainings: true, false
+
+#kaze da je manji veci ili jednak od 20 i za 15 i 16
+monthlyPriceBudget: 10, 15, 16, 19, 20 , 21
+
+trainingTime: OnlyMorning, OnlyNight, WholeDay
+
+membershipType:  TypeA, TypeB, TypeC, TypeD, null
+
+IF ([trainingTime]="WholeDay" and [numberOfMonths]>=5 and [monthlyPriceBudget]>20) then [membershipType]="TypeB";
+IF ([trainingTime]="WholeDay" and [numberOfMonths]>=5 and [monthlyPriceBudget]>20 and [groupTrainings]="true") then [membershipType]="TypeA";
+IF ([trainingTime]="WholeDay" and [numberOfMonths]>=5 and [monthlyPriceBudget]<=20) then [membershipType]="null";
+IF ([trainingTime]="WholeDay" and [numberOfMonths]<5 and [monthlyPriceBudget]>20) then [membershipType]="null";
+
+IF ([trainingTime]="OnlyMorning" and ([numberOfMonths]>12 or [monthlyPriceBudget]>15)) then [membershipType]="TypeC";
+IF ([trainingTime]="OnlyMorning" and ([numberOfMonths]<13 or [monthlyPriceBudget]<16)) then [membershipType]="null";
+
+
+

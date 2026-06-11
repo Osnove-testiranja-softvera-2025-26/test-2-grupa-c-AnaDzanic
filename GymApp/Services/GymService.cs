@@ -1,7 +1,7 @@
 ﻿
-
 using GymApp.Exceptions;
 using GymApp.Models;
+using System;
 using System.Collections.Generic;
 
 namespace GymApp.Services
@@ -11,6 +11,7 @@ namespace GymApp.Services
         private readonly IPaymentService _paymentService;
         private readonly ITrainingService _trainingService;
         private readonly ITrainerPerformanceService _trainerPerformanceService;
+
 
         public void DoStaffBonusPaymentCalculation(Trainer trainer)
         {
@@ -75,6 +76,11 @@ namespace GymApp.Services
             }
 
             return MembershipType.TypeD;
+        }
+
+        public MembershipType GetMembershipType(int numberOfMonths, bool groupTrainings, double monthlyPriceBudget, TrainingTime trainingTime)
+        {
+            throw new NotImplementedException();
         }
     }
 }
